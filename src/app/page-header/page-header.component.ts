@@ -13,36 +13,10 @@ import { Solution } from '../viewModel/solutionViewModel';
 })
 export class PageHeaderComponent implements OnInit {
 
-  productList: Product[] = [];
-  serviceList: Service[] = [];
-  solutionList: Solution[] = [];
-
-  @Input() dropDown1;
-  @Input() dropDown2;
-  @Input() dropDown3;
-  @Input() dropDown4;
-
-  constructor(
-    private productService: ProductService,
-    private solutionService: SolutionService,
-    private serviceService: ServiceService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getProduct();
-    this.getService();
-    this.getSolution();
   }
 
-  getProduct(): void {
-    this.productService.getAllFroduct().subscribe(p => this.productList = p)
-  }
-
-  getSolution(): void {
-    this.solutionService.getAllSolution().subscribe(s => this.solutionList = s)
-  }
-
-  getService(): void {
-    this.serviceService.getAllService().subscribe(s => this.serviceList =s)
-  }
+  @Input() slogan: string;
 }

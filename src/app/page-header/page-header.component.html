@@ -1,66 +1,27 @@
-<div class="header">
-    <div class="row ">
-        <div class="card">
-            <div class="card-body container">
-                <ng-content select="h5"></ng-content>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1">
+            <ng-content select="h4"></ng-content>
+        </div>
+
+        <div class="col-sm-3">
+            {{slogan}}
+        </div>
+
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4">
+            <div class="container">
+                <ng-content select=".add-delete-edit"></ng-content>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="#">Navbar</a>
+        <div class="col-sm-9">
+            <ng-content select=".about"></ng-content>
+        </div>
+        <div class="col-sm-3">
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">{{dropDown1}}</a>
-                            </li>
-
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{dropDown2}}
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li *ngFor="let productItem of productList"><a class="dropdown-item" href="#">{{productItem.name}}</a></li>                                 
-                                </ul>
-                            </div>
-
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{dropDown3}}
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li *ngFor="let solutionItem of solutionList"><a class="dropdown-item" href="#">{{solutionItem.name}}</a></li>                                
-                                </ul>
-                            </div>
-                            
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{dropDown4}}
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li *ngFor="let serviceItem of serviceList"><a class="dropdown-item" href="#">{{serviceItem.name}}</a></li>                                
-                                </ul>
-                            </div>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
         </div>
     </div>
 </div>

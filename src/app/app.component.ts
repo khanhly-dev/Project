@@ -15,12 +15,8 @@ export class AppComponent {
     private productService: ProductService,
     private solutionService: SolutionService,
     private serviceService: ServiceService
-  ){
+  ){}
 
-  }
-
-  nav1: string = 'Home';
-  nav2: string = 'Sản phẩm';
-  nav3: string = 'Giải pháp';
-  nav4: string = 'Dịch vụ';
+    tittle : string = 'Tittle'
+    slogan :string = 'this is a suitable'
 }

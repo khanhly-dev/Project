@@ -1,8 +1,24 @@
-<app-page-header 
-[dropDown1] ='nav1'
-[dropDown2] ='nav2'
-[dropDown3] ='nav3'
-[dropDown4] ='nav4'
->
-  <h5>Tittle</h5>
+<app-page-header [slogan]='slogan'>
+  <h4>{{tittle}}</h4>
+
+  <div class="row add-delete-edit">
+    <div class="col-sm">
+      <button type="button" class="btn btn-outline-primary btn-sm">Add button</button>
+    </div>
+    <div class="col-sm">
+      <button type="button" class="btn btn-outline-primary btn-sm">Delete button</button>
+    </div>
+    <div class="col-sm">
+      <button type="button" class="btn btn-primary btn-sm">Edit button</button>
+    </div>
+  </div>
+
+  <div class="about">
+    Ant Design interprets the color system into two levels: a system-level color system and a product-level
+    color system. <br>
+    Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers
+    to have a clear psychological expectation of color when adjusting colors, as well as facilitate
+    communication in teams.
+  </div>
+
 </app-page-header>
