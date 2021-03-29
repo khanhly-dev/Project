@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ProductService } from './service/product.service';
 import { ServiceService } from './service/service.service';
 import { SolutionService } from './service/solution.service';
@@ -15,8 +16,19 @@ export class AppComponent {
     private productService: ProductService,
     private solutionService: SolutionService,
     private serviceService: ServiceService
-  ){}
+  ) { }
 
-    tittle : string = 'Tittle'
-    slogan :string = 'this is a suitable'
+  tittle: string = 'Tittle'
+  slogan: string = 'this is a suitable'
+
+  // active = true;
+  // disabled = false;
+  // control = new FormControl(false);
+  // toggleControlDisable() {
+  //   if (this.control.disabled) {
+  //     this.control.enable();
+  //   } else {
+  //     this.control.disable();
+  //   }
+  // }
 }
