@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { ServiceService } from '../service/service.service';
 import { SolutionService } from '../service/solution.service';
@@ -16,6 +16,11 @@ export class PageHeaderComponent implements OnInit {
   productList: Product[] = [];
   serviceList: Service[] = [];
   solutionList: Solution[] = [];
+
+  @Input() dropDown1;
+  @Input() dropDown2;
+  @Input() dropDown3;
+  @Input() dropDown4;
 
   constructor(
     private productService: ProductService,

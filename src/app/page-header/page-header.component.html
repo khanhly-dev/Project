@@ -21,13 +21,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="#">{{dropDown1}}</a>
                             </li>
 
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    Sản phẩm
+                                    {{dropDown2}}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li *ngFor="let productItem of productList"><a class="dropdown-item" href="#">{{productItem.name}}</a></li>                                 
@@ -37,7 +37,7 @@
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    Giải pháp
+                                    {{dropDown3}}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li *ngFor="let solutionItem of solutionList"><a class="dropdown-item" href="#">{{solutionItem.name}}</a></li>                                
@@ -47,7 +47,7 @@
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dịch vụ
+                                    {{dropDown4}}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li *ngFor="let serviceItem of serviceList"><a class="dropdown-item" href="#">{{serviceItem.name}}</a></li>                                

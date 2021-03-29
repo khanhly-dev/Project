@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project';
+
+  nav1: string = 'Home';
+  nav2: string = 'Sản phẩm';
+  nav3: string = 'Giải pháp';
+  nav4: string = 'Dịch vụ';
 }
