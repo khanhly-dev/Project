@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="dropdown">
+                <button [disabled]="readonly" class="btn btn-secondary dropdown-toggle" type="button"
+                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{_selectedDistrict}}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li *ngFor="let item of districtList">
+
+                        <input class="form-check-input filter" type="checkbox" value="">
+                        id: {{item.id}} ----------------- name: {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

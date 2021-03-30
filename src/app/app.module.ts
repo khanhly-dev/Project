@@ -10,12 +10,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
+import { ShowDataComponent } from './show-data/show-data.component';
+import { DataSearchComponent } from './data-search/data-search.component';
+import { InMemoryDataService } from './in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PageHeaderComponent,
-    CheckComponent
+    CheckComponent,
+    ShowDataComponent,
+    DataSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,10 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

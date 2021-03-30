@@ -1,5 +1,5 @@
-import { EventEmitter, forwardRef, Provider } from '@angular/core';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { forwardRef, Provider } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const provider: Provider = {
@@ -32,7 +32,7 @@ export class CheckComponent implements OnInit, ControlValueAccessor  {
     } else {
       this._checked = true;
     }
-    this.updateBinding();
+
   }
 
   private _readonly = false;
@@ -46,40 +46,23 @@ export class CheckComponent implements OnInit, ControlValueAccessor  {
     } else {
       this._readonly = true;
     }
-    this.updateBinding();
-  }
-  public bindingClasses = {
-    'checkbox-checked': this._checked,
-    'checkbox-uncheck': !this._checked,
-    'disabled': this._readonly
-  };
 
-  @Output()
-  checkedChange = new EventEmitter<boolean>();
+  }
 
   onChange = (v: boolean) => { };
   onTouched = () => { };
 
-
-  private updateBinding() {
-    this.bindingClasses = {
-      'checkbox-checked': this._checked,
-      'checkbox-uncheck': !this._checked,
-      'disabled': this._readonly
-    };
-  }
 
   toggleChecked() {
     if (this._readonly) {
       return;
     }
     this._checked = !this._checked;
-    this.checkedChange.emit(this._checked);
-    this.updateBinding();
     this.onChange(this._checked);
     this.onTouched();
   }
 
+  //control value accessor
   writeValue(value: any) {
     this.checked = value;
   }

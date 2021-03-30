@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ProductService } from './service/product.service';
-import { ServiceService } from './service/service.service';
-import { SolutionService } from './service/solution.service';
+
 
 @Component({
   selector: 'app-root',
@@ -13,23 +11,31 @@ export class AppComponent {
   title = 'project';
 
   constructor(
-    private productService: ProductService,
-    private solutionService: SolutionService,
-    private serviceService: ServiceService
   ) { }
 
   tittle: string = 'Tittle'
   slogan: string = 'this is a suitable'
 
 
-  active = true;
-  disabled = false;
-  control = new FormControl(false);
+  checkActive = true;
+  checkDisabled = false;
+  checkControl = new FormControl(false);
   toggleControlDisable() {
-    if (this.control.disabled) {
-      this.control.enable();
+    if (this.checkControl.disabled) {
+      this.checkControl.enable();
     } else {
-      this.control.disable();
+      this.checkControl.disable();
+    }
+  }
+
+
+  dataDisable = false;
+  dataControl = new FormControl(false);
+  dataControlDisable() {
+    if (this.dataControl.disabled) {
+      this.dataControl.enable();
+    } else {
+      this.dataControl.disable();
     }
   }
 }

@@ -1,5 +1,5 @@
 <!-- part 1 -->
-<app-page-header [slogan]='slogan' [subTittle] = "content">
+<app-page-header [slogan]='slogan' [subTittle]="content">
   <h4>{{tittle}}</h4>
 
   <div class="row add-delete-edit">
@@ -13,10 +13,10 @@
       <button type="button" class="btn btn-primary btn-sm">Edit button</button>
     </div>
   </div>
- 
+
 </app-page-header>
 <ng-template #content>
-  <div >
+  <div>
     Ant Design interprets the color system into two levels: a system-level color system and a product-level
     color system. <br>
     Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers
@@ -25,18 +25,46 @@
   </div>
 </ng-template>
 
+<br>
+<br>
+
 <!-- part 2 -->
-<form #f="ngForm">
-  <app-check name="status" [(ngModel)]="active" [readonly]="disabled"></app-check>
-</form>
-<button (click)="disabled = !disabled" mat-raised-button color="warn">Driven form</button>
-<pre>
-{{f.value | json}}
-</pre>
-<app-check [formControl]="control"></app-check>
-<pre>
-{{control.value | json}}
-</pre>
+<div class="container">
+  <form #checkForm="ngForm">
+    <app-check name="status" [(ngModel)]="checkActive" [readonly]="checkDisabled"></app-check>
+  </form>
+  <br>
+  <button (click)="checkDisabled = !checkDisabled" mat-raised-button color="warn">Check driven form disable</button>
+  <pre>
+  {{checkForm.value | json}}
+  </pre>
+  <app-check [formControl]="checkControl"></app-check>
+  <pre>
+  {{checkControl.value | json}}
+  </pre>
 
-<button (click)="toggleControlDisable()" mat-raised-button color="warn">Reactive form</button>
+  <button (click)="toggleControlDisable()" mat-raised-button color="warn">Check Reactive form disable </button>
+</div>
+<br>
 
+
+<!-- part 3 -->
+
+<div class="container">
+  <form #cbbForm="ngForm">
+    <app-show-data name="status" [(ngModel)]="dataDisable"></app-show-data>
+  </form>
+  <br>
+  <button (click)="dataDisable = !dataDisable" mat-raised-button color="warn">data driven form disable</button>
+  <pre>
+    {{cbbForm.value | json}}
+  </pre>
+
+  <app-show-data [formControl]="dataControl"></app-show-data>
+  <pre>
+  {{dataControl.value | json}}
+  </pre>
+
+  <button (click)="dataControlDisable()" mat-raised-button color="warn">Check Reactive form disable </button>
+
+</div>

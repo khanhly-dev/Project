@@ -1,9 +1,7 @@
-<div class="checkbox container" tabindex="0" 
-
-(change)="toggleChecked()"
-[ngClass]="bindingClasses">
-  <mat-slide-toggle *ngIf="checked;" (change)="toggleChecked()" [checked]="checked">Slide me!</mat-slide-toggle>
-  <mat-slide-toggle *ngIf="!checked; " (change)="toggleChecked()" [checked]="checked">Slide me!</mat-slide-toggle>
+<div class="checkbox container" tabindex="0" >
+  
+  <mat-slide-toggle *ngIf="checked;" (change)="toggleChecked()" [checked]="checked" [disabled] = "readonly">Slide me!</mat-slide-toggle>
+  <mat-slide-toggle *ngIf="!checked; " (change)="toggleChecked()" [checked]="checked" [disabled] = "readonly">Slide me!</mat-slide-toggle>
  
 </div> 
 
