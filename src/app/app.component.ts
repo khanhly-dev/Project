@@ -21,14 +21,15 @@ export class AppComponent {
   tittle: string = 'Tittle'
   slogan: string = 'this is a suitable'
 
-  // active = true;
-  // disabled = false;
-  // control = new FormControl(false);
-  // toggleControlDisable() {
-  //   if (this.control.disabled) {
-  //     this.control.enable();
-  //   } else {
-  //     this.control.disable();
-  //   }
-  // }
+
+  active = true;
+  disabled = false;
+  control = new FormControl(false);
+  toggleControlDisable() {
+    if (this.control.disabled) {
+      this.control.enable();
+    } else {
+      this.control.disable();
+    }
+  }
 }

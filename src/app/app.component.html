@@ -1,4 +1,5 @@
-<app-page-header [slogan]='slogan'>
+<!-- part 1 -->
+<app-page-header [slogan]='slogan' [subTittle] = "content">
   <h4>{{tittle}}</h4>
 
   <div class="row add-delete-edit">
@@ -12,29 +13,30 @@
       <button type="button" class="btn btn-primary btn-sm">Edit button</button>
     </div>
   </div>
-
-  <div class="about">
+ 
+</app-page-header>
+<ng-template #content>
+  <div >
     Ant Design interprets the color system into two levels: a system-level color system and a product-level
     color system. <br>
     Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers
     to have a clear psychological expectation of color when adjusting colors, as well as facilitate
     communication in teams.
   </div>
+</ng-template>
 
-</app-page-header>
-
-
-<!-- <form #f="ngForm">
+<!-- part 2 -->
+<form #f="ngForm">
   <app-check name="status" [(ngModel)]="active" [readonly]="disabled"></app-check>
 </form>
-
+<button (click)="disabled = !disabled" mat-raised-button color="warn">Driven form</button>
 <pre>
 {{f.value | json}}
 </pre>
-
 <app-check [formControl]="control"></app-check>
 <pre>
-  {{control.value | json}}
+{{control.value | json}}
 </pre>
-<button (click)="disabled = !disabled">Toggle</button>
-<button (click)="toggleControlDisable()">Toggle 2</button> -->
+
+<button (click)="toggleControlDisable()" mat-raised-button color="warn">Reactive form</button>
+

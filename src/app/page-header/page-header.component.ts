@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { ServiceService } from '../service/service.service';
 import { SolutionService } from '../service/solution.service';
@@ -19,4 +19,6 @@ export class PageHeaderComponent implements OnInit {
   }
 
   @Input() slogan: string;
+
+  @Input() subTittle : TemplateRef<any>;
 }
