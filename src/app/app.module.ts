@@ -11,9 +11,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import { ShowDataComponent } from './show-data/show-data.component';
-import { DataSearchComponent } from './data-search/data-search.component';
-import { InMemoryDataService } from './in-memory-data.service';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 
 @NgModule({
@@ -21,8 +19,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     AppComponent,
     PageHeaderComponent,
     CheckComponent,
-    ShowDataComponent,
-    DataSearchComponent
+    ShowDataComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +31,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     MatSliderModule,
     MatSlideToggleModule,
     MatButtonModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false })
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

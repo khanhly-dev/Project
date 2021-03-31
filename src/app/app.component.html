@@ -1,4 +1,4 @@
-<!-- part 1 -->
+part 1 
 <app-page-header [slogan]='slogan' [subTittle]="content">
   <h4>{{tittle}}</h4>
 
@@ -27,8 +27,9 @@
 
 <br>
 <br>
-
-<!-- part 2 -->
+<div class="test" (click)="test1()">Test </div>
+<div #testEl (click)="test2()">Testt El</div>
+part 2
 <div class="container">
   <form #checkForm="ngForm">
     <app-check name="status" [(ngModel)]="checkActive" [readonly]="checkDisabled"></app-check>
@@ -49,7 +50,7 @@
 
 
 <!-- part 3 -->
-
+<!-- 
 <div class="container">
   <form #cbbForm="ngForm">
     <app-show-data name="status" [(ngModel)]="dataDisable"></app-show-data>
@@ -67,4 +68,8 @@
 
   <button (click)="dataControlDisable()" mat-raised-button color="warn">Check Reactive form disable </button>
 
+</div> -->
+<!-- part 3 -->
+<div class="container">
+  <app-show-data></app-show-data>
 </div>

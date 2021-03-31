@@ -1,20 +1,27 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div class="dropdown">
-                <button [disabled]="readonly" class="btn btn-secondary dropdown-toggle" type="button"
-                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{_selectedDistrict}}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li *ngFor="let item of districtList">
+<div id="search-component">
+    <label for="search-box">Hero Search</label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" (click)="cc" />
 
-                        <input class="form-check-input filter" type="checkbox" value="">
-                        id: {{item.id}} ----------------- name: {{item.name}}
-                    </li>
-                </ul>
-            </div>
-        </div>
-
+    <div *ngIf="searchBox.value != '' ; else cc">
+        <ul class="search-result">
+            <li *ngFor="let cityItem of cityFilterList | async">
+                <a>
+                    {{cityItem.name}}
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
+<ng-template #cc>
+    <div>
+        <ul class="search-result">
+            <li *ngFor="let item of cityList ">
+                <a>
+                    {{item.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</ng-template>
+

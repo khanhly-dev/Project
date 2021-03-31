@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { DistrictViewModel } from '../ViewModel/districtViewModel';
+import { CityViewModel } from '../ViewModel/cityViewModel';
 
-const apiUrl = "https://605c56316d85de00170d9eb0.mockapi.io/product"
 const httpOption ={
   Headers : new Headers({'Content-Type': 'Aplication/Json'})
 }
@@ -17,16 +17,32 @@ export class GetDataServiceService {
     private httpClient : HttpClient
   ) { }
 
-  GetDistrictFromServer() : Observable<DistrictViewModel[]>{
-    return this.httpClient.get<DistrictViewModel[]>(apiUrl).pipe();
+  private cityApiUrl = "https://605c56316d85de00170d9eb0.mockapi.io/city";
+
+  
+  getCityFromServer() : Observable<CityViewModel[]>{
+    return this.httpClient.get<CityViewModel[]>(this.cityApiUrl).pipe();
   }
 
-  // searchHeroes(term: string): Observable<DistrictViewModel[]> {
-  //   if (!term.trim()) {
-  //     return of([]);
-  //   }
-  //   return this.httpClient.get<DistrictViewModel[]>
-  //     (`${this.heroesUrl}/?name=${term}`).pipe()
+  filterCity(term: string): Observable<CityViewModel[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
 
-  // }
+    return this.httpClient.get<CityViewModel[]>
+      (`${this.cityApiUrl}/?search=${term}`).pipe()
+    // if(term == '')
+    // {
+    //   return this.httpClient.get<CityViewModel[]>(this.cityApiUrl).pipe();
+    // }
+    // else
+    // {
+    //   return this.httpClient.get<CityViewModel[]>
+    //   (`${this.cityApiUrl}'?search='${term}`).pipe()
+    // }
+   
+  }
+
+
+
 }

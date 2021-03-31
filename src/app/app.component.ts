@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -9,6 +9,15 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
   title = 'project';
+  @ViewChild('testEl') testEl: ElementRef;
+
+  test1(){
+  document.getElementsByClassName('test');
+      console.log(document.getElementsByClassName('test'))
+  }
+  test2(){
+    console.log(this.testEl.nativeElement);
+  }
 
   constructor(
   ) { }
