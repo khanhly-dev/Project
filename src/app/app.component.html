@@ -1,4 +1,4 @@
-part 1 
+part 1
 <app-page-header [slogan]='slogan' [subTittle]="content">
   <h4>{{tittle}}</h4>
 
@@ -27,8 +27,8 @@ part 1
 
 <br>
 <br>
-<div class="test" (click)="test1()">Test </div>
-<div #testEl (click)="test2()">Testt El</div>
+<!-- <div class="test" (click)="test1()">Test </div>
+<div #testEl (click)="test2()">Testt El</div> -->
 part 2
 <div class="container">
   <form #checkForm="ngForm">
@@ -70,6 +70,15 @@ part 2
 
 </div> -->
 <!-- part 3 -->
+part 3
 <div class="container">
-  <app-show-data></app-show-data>
+  <form #cbbForm="ngForm">
+    <app-show-data name="status" [(ngModel)]="dataDisable"></app-show-data>
+  </form>
+  <br>
+  <button (click)="dataDisable = !dataDisable" mat-raised-button color="warn">disable combobox driven</button>
+
+  <app-show-data [formControl]="dataControl"></app-show-data>
+  <button (click)="dataControlDisable()" mat-raised-button color="warn">Check Reactive form disable </button>
+
 </div>

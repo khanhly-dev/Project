@@ -1,11 +1,9 @@
 import { Component, forwardRef, Input, OnInit, Provider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
 import { GetDataServiceService } from '../Service/get-data-service.service';
 import { CityViewModel } from '../ViewModel/cityViewModel';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { DistrictViewModel } from '../ViewModel/districtViewModel';
-declare var $ :any
+
 const provider: Provider = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => ShowDataComponent),
@@ -22,38 +20,40 @@ export class ShowDataComponent implements OnInit, ControlValueAccessor {
 
   cityList : CityViewModel[] = [];
 
-  cityFilterList: Observable<CityViewModel[]>;
-  private searchTerms = new Subject<string>();
+  districtList : DistrictViewModel[] =[];
 
+  citySelected : string ;
 
   constructor(private getDataService : GetDataServiceService) { }
 
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
-
   ngOnInit(): void {
     this.getAllCity();
-    this.cityFilterList = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      // debounceTime(300),
-
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.getDataService.filterCity(term)),
-    );
+    
   }
-
-  
-  
 
   getAllCity():void{
     this.getDataService.getCityFromServer().subscribe(x => this.cityList = x)
   }
 
+  getDistrictByCity(id : number ):void{
+   
+    for(let i of this.cityList)
+    {
+      if(i.name === this.citySelected)
+      {
+        id = i.id;
+        this.getDataService.getDistrictById(id).subscribe(x => this.districtList = x)
+      }
+    }
+    
+  }
 
+  onSelected(event : any){
+    this.citySelected = event.target.value;
+    console.log(this.citySelected)
+    this.getDistrictByCity(1);
+  }
+  
   private _readonly = false;
   @Input()
   get readonly() {

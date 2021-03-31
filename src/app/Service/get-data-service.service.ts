@@ -4,8 +4,8 @@ import { Observable, of } from 'rxjs';
 import { DistrictViewModel } from '../ViewModel/districtViewModel';
 import { CityViewModel } from '../ViewModel/cityViewModel';
 
-const httpOption ={
-  Headers : new Headers({'Content-Type': 'Aplication/Json'})
+const httpOption = {
+  Headers: new Headers({ 'Content-Type': 'Aplication/Json' })
 }
 
 @Injectable({
@@ -14,35 +14,17 @@ const httpOption ={
 export class GetDataServiceService {
 
   constructor(
-    private httpClient : HttpClient
+    private httpClient: HttpClient
   ) { }
 
-  private cityApiUrl = "https://605c56316d85de00170d9eb0.mockapi.io/city";
+  private ApiUrl = "https://605c56316d85de00170d9eb0.mockapi.io";
 
-  
-  getCityFromServer() : Observable<CityViewModel[]>{
-    return this.httpClient.get<CityViewModel[]>(this.cityApiUrl).pipe();
+
+  getCityFromServer(): Observable<CityViewModel[]> {
+    return this.httpClient.get<CityViewModel[]>(`${this.ApiUrl}/city`).pipe();
   }
 
-  filterCity(term: string): Observable<CityViewModel[]> {
-    if (!term.trim()) {
-      return of([]);
-    }
-
-    return this.httpClient.get<CityViewModel[]>
-      (`${this.cityApiUrl}/?search=${term}`).pipe()
-    // if(term == '')
-    // {
-    //   return this.httpClient.get<CityViewModel[]>(this.cityApiUrl).pipe();
-    // }
-    // else
-    // {
-    //   return this.httpClient.get<CityViewModel[]>
-    //   (`${this.cityApiUrl}'?search='${term}`).pipe()
-    // }
-   
+  getDistrictById(id: number): Observable<DistrictViewModel[]> {
+    return this.httpClient.get<DistrictViewModel[]>(`${this.ApiUrl}/city/${id}/district`).pipe();
   }
-
-
-
 }

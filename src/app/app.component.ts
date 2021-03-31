@@ -8,16 +8,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'project';
-  @ViewChild('testEl') testEl: ElementRef;
+  // title = 'project';
+  // @ViewChild('testEl') testEl: ElementRef;
 
-  test1(){
-  document.getElementsByClassName('test');
-      console.log(document.getElementsByClassName('test'))
-  }
-  test2(){
-    console.log(this.testEl.nativeElement);
-  }
+  // test1(){
+  // document.getElementsByClassName('test');
+  //     console.log(document.getElementsByClassName('test'))
+  // }
+  // test2(){
+  //   console.log(this.testEl.nativeElement);
+  // }
 
   constructor(
   ) { }

@@ -1,4 +1,4 @@
-<div id="search-component">
+<!-- <div id="search-component">
     <label for="search-box">Hero Search</label>
     <input #searchBox id="search-box" (input)="search(searchBox.value)" (click)="cc" />
 
@@ -6,7 +6,7 @@
         <ul class="search-result">
             <li *ngFor="let cityItem of cityFilterList | async">
                 <a>
-                    {{cityItem.name}}
+                    {{c ityItem.name}}
                 </a>
             </li>
         </ul>
@@ -24,4 +24,16 @@
     </div>
 
 </ng-template>
-
+ -->
+<div >
+    <label for="">Tỉnh/Thành phố</label>
+    <select [disabled] ="readonly" (change)="onSelected($event)" class="form-select form-select-sm" aria-label=".form-select-sm example">
+    <option  *ngFor="let item of cityList">{{item.name}}</option>
+    </select>
+    <br>
+    <br>
+    <label for="">Quận/Huyện</label>
+    <select [disabled] ="readonly" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option  *ngFor="let item of districtList">{{item.name}}</option>
+    </select>
+</div>
