@@ -11,6 +11,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import { ShowDataComponent } from './show-data/show-data.component';
+import { UserFormCreateComponent } from './user-form-create/user-form-create.component';
+import { UserViewComponent } from './user-view/user-view.component';
 
 
 
@@ -19,7 +21,9 @@ import { ShowDataComponent } from './show-data/show-data.component';
     AppComponent,
     PageHeaderComponent,
     CheckComponent,
-    ShowDataComponent
+    ShowDataComponent,
+    UserFormCreateComponent,
+    UserViewComponent
   ],
   imports: [
     BrowserModule,

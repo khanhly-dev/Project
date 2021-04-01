@@ -39,7 +39,7 @@ part 2
   <pre>
   {{checkForm.value | json}}
   </pre>
-  <app-check [formControl]="checkControl"></app-check>
+  <app-check [formControl]="checkControl" ></app-check>
   <pre>
   {{checkControl.value | json}}
   </pre>
@@ -57,7 +57,17 @@ part 3
   <br>
   <button (click)="dataDisable = !dataDisable" mat-raised-button color="warn">disable combobox driven</button>
 
-  <app-show-data [formControl]="dataControl"></app-show-data>
-  <button (click)="dataControlDisable()" mat-raised-button color="warn">Check Reactive form disable </button>
+  <!-- <app-show-data [formControl]="dataControl"></app-show-data>
+  <button (click)="dataControlDisable()" mat-raised-button color="warn">Check Reactive form disable </button> -->
 
+</div>
+
+part 4
+<div class="container">
+
+    <app-user-view></app-user-view>
+
+ 
+  <a routerLink="/user-create" type="button" mat-raised-button color="warn">Thêm</a>
+  <router-outlet></router-outlet>
 </div>

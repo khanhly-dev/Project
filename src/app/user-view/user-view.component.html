@@ -1,0 +1,36 @@
+<table class="table  table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên</th>
+            <th scope="col">SĐT</th>
+            <th scope="col">Tỉnh/Thành phố</th>
+            <th scope="col">Quận/Huyện</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of userList">
+            <th>
+                <input type="text" [value] ="item.id" [disabled]="readonly">
+            </th>
+            <th>
+                <input type="text" [value] ="item.name" [disabled]="readonly">
+            </th>
+            <th>
+                <input type="text" [value] ="item.phoneNumber" [disabled]="readonly">
+            </th>
+            <th>
+                <input type="text" [value] ="item.city" [disabled]="readonly">
+            </th>
+            <th>
+                <input type="text" [value] ="item.district" [disabled]="readonly">
+            </th>
+            <td>
+                <button (click) ="getUserById(item)"  href="">sửa |</button>
+                <button  (click) ="saveUserBeforeUpdate()" href="" [hidden] = "readonly">OK |</button>
+                <a (click)="deleteUser(item)" href=""> xóa</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

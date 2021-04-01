@@ -47,4 +47,6 @@ export class AppComponent {
       this.dataControl.disable();
     }
   }
+
+  editDisable = false;
 }
