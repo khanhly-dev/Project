@@ -1,0 +1,8 @@
+<div>
+    <label for="">Tỉnh/Thành phố</label>
+    <select (change)="onSelected($event)" class="form-select form-select-sm" aria-label=".form-select-sm example">
+    <option  *ngFor="let cityItem of cityList">{{cityItem.name}}</option>
+    </select>
+    <br>
+    <app-district [_districtList] = "districtList"></app-district>
+</div>

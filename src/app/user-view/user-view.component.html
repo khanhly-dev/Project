@@ -10,26 +10,26 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of userList">
+        <tr *ngFor="let item of userList" >
             <th>
-                <input type="text" [value] ="item.id" [disabled]="readonly">
+                <input type="text" [value] ="item.id" disabled >
             </th>
             <th>
-                <input type="text" [value] ="item.name" [disabled]="readonly">
+                <input type="text" [(ngModel)] ="item.name" [disabled]="readonly" >
             </th>
             <th>
-                <input type="text" [value] ="item.phoneNumber" [disabled]="readonly">
+                <input type="text" [(ngModel)] ="item.phoneNumber" [disabled]="readonly" >
             </th>
             <th>
-                <input type="text" [value] ="item.city" [disabled]="readonly">
+                <input type="text" [(ngModel)] ="item.city" [disabled]="readonly" >
             </th>
             <th>
-                <input type="text" [value] ="item.district" [disabled]="readonly">
+                <input type="text" [(ngModel)] ="item.district" [disabled]="readonly">
             </th>
             <td>
-                <button (click) ="getUserById(item)"  href="">sửa |</button>
-                <button  (click) ="saveUserBeforeUpdate()" href="" [hidden] = "readonly">OK |</button>
-                <a (click)="deleteUser(item)" href=""> xóa</a>
+                <button (click) ="editData()"  href="">sửa |</button>
+                <button  (click) ="saveUserBeforeUpdate(item)" href="" [hidden] = "readonly">OK |</button>
+                <button (click)="deleteUser(item)" > xóa</button>
             </td>
         </tr>
     </tbody>

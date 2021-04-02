@@ -65,9 +65,14 @@ part 3
 part 4
 <div class="container">
 
-    <app-user-view></app-user-view>
+    <!-- <app-user-view></app-user-view> -->
 
- 
-  <a routerLink="/user-create" type="button" mat-raised-button color="warn">Thêm</a>
+  <nav>
+    <a routerLink="/user-view" type="button" mat-raised-button color="warn">Danh sách</a>
+    <a routerLink="/user-create" type="button" mat-raised-button color="warn">Thêm</a>
+
+  </nav>
+  
   <router-outlet></router-outlet>
 </div>
+<br><br><br><br>

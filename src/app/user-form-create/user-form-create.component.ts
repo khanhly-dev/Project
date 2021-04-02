@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../Service/user.service';
 import { UserViewComponent } from '../user-view/user-view.component';
+import { DistrictViewModel } from '../ViewModel/districtViewModel';
 import { UserViewModel } from '../ViewModel/userViewModel';
 
 @Component({
@@ -28,8 +29,10 @@ export class UserFormCreateComponent implements OnInit {
     {
       name :new FormControl(''),
       phoneNumber :new FormControl(''),
-      city :new FormControl(''),
-      district :new FormControl('')
+      adress: new FormGroup({
+        city :new FormControl(''),
+        district :new FormControl('')
+      })
     }
   )
 
@@ -37,8 +40,8 @@ export class UserFormCreateComponent implements OnInit {
   {
     user.name = this.createForm.value.name;
     user.city = this.createForm.value.city;
-    user.phoneNumber = this.createForm.value.phoneNumber;
-    user.district = this.createForm.value.district;
+    // user.phoneNumber = this.createForm.value.phoneNumber;
+    // user.district = this.createForm.value.district;
     this.userService.addUser(user).subscribe(user => {this.userList.push(user)});
   }
 }

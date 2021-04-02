@@ -24,7 +24,8 @@ export class GetDataServiceService {
     return this.httpClient.get<CityViewModel[]>(`${this.ApiUrl}/city`).pipe();
   }
 
-  getDistrictById(id: number): Observable<DistrictViewModel[]> {
+  getDistrictByCityId(id: number): Observable<DistrictViewModel[]> {
     return this.httpClient.get<DistrictViewModel[]>(`${this.ApiUrl}/city/${id}/district`).pipe();
   }
+
 }

@@ -31,7 +31,6 @@ export class UserService {
 
   updateUser(user : UserViewModel): Observable<any>
   {
-    console.log(user)
     return this.httpClient.put<UserViewModel>(`${this.apiUrl}/${user.id}`, user).pipe();
   }
 

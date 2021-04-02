@@ -1,34 +1,21 @@
 import { UserService } from '../Service/user.service';
 import { UserViewModel } from '../ViewModel/userViewModel';
-import { Component, forwardRef, Input, OnChanges, OnInit, Provider } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
 
-const provider: Provider = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => UserViewComponent),
-  multi: true
-};
+
 
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.css'],
-  providers: [provider]
 })
-export class UserViewComponent implements OnInit,OnChanges, ControlValueAccessor {
+export class UserViewComponent implements OnInit {
 
   userList : UserViewModel[] = [];
-
-  user : UserViewModel;
 
   constructor(private userService : UserService) { }
 
   ngOnInit(): void {
-    this.getAllUser();
-  }
-
-  ngOnChanges():void
-  {
     this.getAllUser();
   }
 
@@ -46,19 +33,12 @@ export class UserViewComponent implements OnInit,OnChanges, ControlValueAccessor
   deleteUser(user : UserViewModel):void
   {
     this.userService.deleteUser(user.id).subscribe();
-
-  }
-
-  //get by id
-  getUserById(user : UserViewModel) :void
-  {
-    this.userService.getById(user.id).subscribe(x => this.user = x);
-    this.editData();
+    this.getAllUser()
   }
 
   //put
-  saveUserBeforeUpdate():void{
-    this.userService.updateUser(this.user).subscribe();
+  saveUserBeforeUpdate(userEdit : UserViewModel):void{
+    this.userService.updateUser(userEdit).subscribe();
     this.editData();
   }
 
@@ -77,25 +57,25 @@ export class UserViewComponent implements OnInit,OnChanges, ControlValueAccessor
 
   }
 
-  onChange = (v: boolean) => { };
-  onTouched = () => { };
+  // onChange = (v: boolean) => { };
+  // onTouched = () => { };
 
 
-  //an theo [(ngmodel)] cua template driven form
-  writeValue(value: any) {
-    this.readonly = value;
-  }
-  registerOnChange(fn: any) {
-    this.onChange = fn;
-  }
+  // //an theo [(ngmodel)] cua template driven form
+  // writeValue(value: any) {
+  //   this.readonly = value;
+  // }
+  // registerOnChange(fn: any) {
+  //   this.onChange = fn;
+  // }
 
-  registerOnTouched(fn: any) {
-    this.onTouched = fn;
-  }
+  // registerOnTouched(fn: any) {
+  //   this.onTouched = fn;
+  // }
 
-  //an theo disable cua formcontrol
-  setDisabledState(isDisabled: boolean) {
-    this.readonly = isDisabled;
-  }
+  // //an theo disable cua formcontrol
+  // setDisabledState(isDisabled: boolean) {
+  //   this.readonly = isDisabled;
+  // }
 
 }

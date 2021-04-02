@@ -42,7 +42,7 @@ export class ShowDataComponent implements OnInit, ControlValueAccessor {
       if(i.name === this.citySelected)
       {
         id = i.id;
-        this.getDataService.getDistrictById(id).subscribe(x => this.districtList = x)
+        this.getDataService.getDistrictByCityId(id).subscribe(x => this.districtList = x)
       }
     }
     
@@ -72,7 +72,6 @@ export class ShowDataComponent implements OnInit, ControlValueAccessor {
   onTouched = () => { };
 
 
-  //an theo [(ngmodel)] cua template driven form
   writeValue(value: any) {
     this.readonly = value;
   }
@@ -84,7 +83,6 @@ export class ShowDataComponent implements OnInit, ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  //an theo disable cua formcontrol
   setDisabledState(isDisabled: boolean) {
     this.readonly = isDisabled;
   }

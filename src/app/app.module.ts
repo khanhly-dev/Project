@@ -13,6 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ShowDataComponent } from './show-data/show-data.component';
 import { UserFormCreateComponent } from './user-form-create/user-form-create.component';
 import { UserViewComponent } from './user-view/user-view.component';
+import { DistrictComponent } from './district/district.component';
+import { CityComponent } from './city/city.component';
 
 
 
@@ -23,7 +25,9 @@ import { UserViewComponent } from './user-view/user-view.component';
     CheckComponent,
     ShowDataComponent,
     UserFormCreateComponent,
-    UserViewComponent
+    UserViewComponent,
+    DistrictComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,
