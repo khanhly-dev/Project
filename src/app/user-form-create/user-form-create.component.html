@@ -9,7 +9,8 @@
         <input type="text" class="form-control" formControlName="phoneNumber">
     </div>
 
-    <app-city formGroupName= "adress"></app-city> 
+    <app-city formControlName = "city" (ngModelChange)="onCityChange()"></app-city> 
+    <app-district formControlName = "district" [cityId] = "getCityId"></app-district>
     <!-- <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Tỉnh/Thành phố</label>
         <input type="text" class="form-control" formControlName="city">

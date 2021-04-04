@@ -1,6 +1,6 @@
 <div>
     <label for="">Quận/Huyện</label>
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option  *ngFor="let districtItem of _districtList">{{districtItem.name}}</option>
+    <select (change)="onCitySelected($event)" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option *ngFor="let districtItem of districtList">{{districtItem.name}}</option>
     </select>
 </div>
